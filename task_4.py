@@ -1,6 +1,8 @@
+from datetime import datetime
+
 print("Последние 5 операций")
 try:
-    with open("calculator.log", "r", encoding="utf-8") as file:
+    with open("resource/calculator.log", "r", encoding="utf-8") as file:
         lines = file.readlines()
 
     last = lines[-5:]
@@ -46,12 +48,13 @@ while True:
 
         print(f"Результат: {result}")
 
-        log_entry = f"{number1} {operation} {number2} = {result}\n"
-        with open("calculator.log", "a", encoding="utf-8") as file:
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_entry = f"[{timestamp}] {number1} {operation} {number2} = {result}\n"
+        with open("resource/calculator.log", "a", encoding="utf-8") as file:
             file.write(log_entry)
 
     elif choice == "2":
-        with open("calculator.log", "w", encoding="utf-8") as file:
+        with open("resource/calculator.log", "w", encoding="utf-8") as file:
             print("Лог-файл очищен!")
 
     elif choice == "3":

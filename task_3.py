@@ -1,11 +1,11 @@
-with open("products.csv", "w", encoding="utf-8") as file:
+with open("resource/products.csv", "w", encoding="utf-8") as file:
     file.write("Название;Цена;Количество\n"
                "Яблоки;100;50\n"
                "Бананы;80;30\n"
                "Молоко;120;20\n"
                "Хлеб;40;100\n")
 
-with open("products.csv", "r", encoding="utf-8") as file:
+with open("resource/products.csv", "r", encoding="utf-8") as file:
     text = file.readlines()
 
 header = text[0]
@@ -53,7 +53,7 @@ while True:
         print(f"Общая стоимость всех товаров: {total}")
 
     elif choice == "5":
-        with open("products.csv", "w", encoding="utf-8") as file:
+        with open("resource/products.csv", "w", encoding="utf-8") as file:
             file.write(header)
             for line in products:
                 file.write(line)
